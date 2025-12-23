@@ -18,7 +18,7 @@ from ISLP import confusion_table
 from ISLP.models import ModelSpec as MS, summarize
 
 # Import the data set 
-Heart_Disease = pd.read_csv(r"path")
+Heart_Disease = pd.read_csv(r"C:\Users\Antonio\Desktop\Heart Disease Model\heart.csv")
 
 # Remove rows with null values 
 Heart_Disease.dropna()
