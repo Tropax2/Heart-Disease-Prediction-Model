@@ -16,7 +16,7 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
-from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA 
+from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis as QDA
 from ISLP import confusion_table 
 
 # Import and remove rows with empty values
@@ -43,7 +43,7 @@ scaler.fit(X[['age', 'trestbps', 'chol', 'thalach', 'oldpeak']])
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.15, random_state=42, shuffle=True)
 
 # fit the LDA model 
-clf = LDA()
+clf = QDA()
 clf.fit(X_train, Y_train)
 
 # predictions 
@@ -52,6 +52,6 @@ predicted = clf.predict(X_test)
 print(confusion_table(predicted, Y_test))
 print(np.mean(predicted == Y_test))
 '''
-We verify that the correct prediction rate of this model, reserving 15% of the data for testing, is of 84.7%
+We verify that the correct prediction rate of this model, reserving 15% of the data for testing, is of 78.2%
 '''
 

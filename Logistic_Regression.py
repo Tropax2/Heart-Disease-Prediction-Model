@@ -18,13 +18,13 @@ from ISLP import confusion_table
 from ISLP.models import ModelSpec as MS, summarize
 
 # Import the data set 
-Heart_Disease = pd.read_csv(r"path")
+Heart_Disease = pd.read_csv(r"C:\Users\Antonio\Desktop\Heart Disease Model\heart.csv")
 
 # Remove rows with null values 
 Heart_Disease.dropna()
 
 # Convert the categorical variables into categorical type 
-categorical_predictors = ["cp", "thal", "restecg", "sex"] 
+categorical_predictors = ["sex", "cp", "fbs",  "thal", "restecg", "exang", "slope", "ca", "thal"] 
 for col in categorical_predictors:
     Heart_Disease[col] = Heart_Disease[col].astype("category")
 
@@ -44,9 +44,9 @@ probs = results.predict(X)
 labels = np.array(0 * X.shape[0])
 labels = probs > 0.5 
 #print(confusion_table(labels, Y))
-#print(np.mean(labels == Y))
+print(np.mean(labels == Y))
 '''
-The correct prediction rate of the the model is 85.8% 
+The correct prediction rate of the the model is 88.4% 
 '''
 
 #######################
