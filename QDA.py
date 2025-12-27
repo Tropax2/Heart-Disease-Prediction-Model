@@ -20,7 +20,7 @@ from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis as QDA
 from ISLP import confusion_table 
 
 # Import and remove rows with empty values
-Heart_Disease = pd.read_csv(r"C:\Users\Antonio\Desktop\Heart Disease Model\heart.csv")
+Heart_Disease = pd.read_csv(r"path")
 Heart_Disease.dropna()
 
 X = Heart_Disease.drop(columns='target')
