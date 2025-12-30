@@ -20,7 +20,7 @@ from sklearn.naive_bayes import GaussianNB
 
 
 # Import and remove rows with empty values
-Heart_Disease = pd.read_csv(r"C:\Users\Antonio\Desktop\Heart Disease Model\heart.csv")
+Heart_Disease = pd.read_csv(r"path")
 Heart_Disease.dropna()
 
 X = Heart_Disease.drop(columns='target')
