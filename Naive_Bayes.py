@@ -1,5 +1,5 @@
 '''
-We use QDA to predict if a given patient will develop 
+We use Naive Bayes to predict if a given patient will develop 
 a heart disease. The predictors given in the CSV  are:
 - Demographic: age, sex 
 - Clinical: CP (chest pain type), trestbps (blood pressure), chol (cholestrol)
@@ -12,15 +12,15 @@ We use the confusion matrix to verify to compute the ratio of correct prediction
 to compare with other models.
 '''
 import numpy as np
-import pandas as pd 
-from sklearn.preprocessing import StandardScaler
+import pandas as pd
+from sklearn.preprocessing import StandardScaler 
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
-from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis as QDA
-from ISLP import confusion_table 
+from sklearn.naive_bayes import GaussianNB 
+
 
 # Import and remove rows with empty values
-Heart_Disease = pd.read_csv(r"path")
+Heart_Disease = pd.read_csv(r"C:\Users\Antonio\Desktop\Heart Disease Model\heart.csv")
 Heart_Disease.dropna()
 
 X = Heart_Disease.drop(columns='target')
@@ -42,16 +42,13 @@ scaler.fit(X[['age', 'trestbps', 'chol', 'thalach', 'oldpeak']])
 # Split the data into train and test
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.15, random_state=42, shuffle=True)
 
-# fit the QDA model 
-clf = QDA()
+# fit the Naive Bayes model
+clf = GaussianNB()
 clf.fit(X_train, Y_train)
 
-# predictions 
+# predictions
 predicted = clf.predict(X_test)
-
-print(confusion_table(predicted, Y_test))
 print(np.mean(predicted == Y_test))
 '''
-We verify that the correct prediction rate of this model, reserving 15% of the data for testing, is of 78.2%
+We verify that the correct prediction rate of this model, reserving 15% of the data for testing, is of 80.4%
 '''
-
