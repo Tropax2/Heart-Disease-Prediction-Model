@@ -1,6 +1,6 @@
 This repo contains a prediction model applied that predicts wether or not an individual is likely to have heart disease.
 
-Since it regards a classification problem we use three different models and compare them: Logistic Regression, LDA, QDA, Naive Bayes and K nearest neighbour.
+Since it regards a classification problem we use different models and compare them via a validation set approach: Logistic Regression, LDA, QDA, Naive Bayes and K nearest neighbour.
 
 The files it contains are the following:
 - The dataset in CSV format from Kaggle (https://www.kaggle.com/datasets/arezaei81/heartcsv);
